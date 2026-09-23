@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import './App.css';
 
-const API_URL = import.meta.env.VITE_CHATBOT_API_URL || 'http://localhost:5001';
+const API_URL = import.meta.env.VITE_CHATBOT_API_URL || 'https://ritinjali-gpt-server.vercel.app';
 
 interface Message {
   id: number;

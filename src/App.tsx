@@ -104,16 +104,19 @@ export default function App() {
         body: JSON.stringify({ question: q, history }),
       });
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const errData = await res.json().catch(() => null);
+        throw new Error(errData?.error || `Server error (${res.status})`);
+      }
       const data = await res.json();
 
       setMessages(prev => [...prev, {
         id: Date.now() + 1, role: 'bot', text: data.answer, time: getTime(),
       }]);
-    } catch {
+    } catch (err: any) {
       setMessages(prev => [...prev, {
         id: Date.now() + 1, role: 'bot', isError: true, time: getTime(),
-        text: 'Unable to reach the assistant service. Please ensure the API server is running on port 5001.',
+        text: err?.message || 'Unable to reach the assistant service.',
       }]);
     } finally {
       setLoading(false);

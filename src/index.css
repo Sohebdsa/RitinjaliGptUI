@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Lucide icon utilities ── */
+.icon-spin {
+  animation: spin 1.4s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.muted { color: var(--text-muted); }
+.error-icon { color: #9e6b6b; margin-left: 4px; }
+.meta-right { justify-content: flex-end; }
+.session-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+/* Remove old welcome-eyebrow pseudo element since we use a Lucide icon now */
+.welcome-eyebrow::before { display: none; }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Warm Charcoal Palette ── */
+  --bg-void:      #080806;
+  --bg-base:      #0e0d0a;
+  --bg-surface:   #141210;
+  --bg-elevated:  #1a1814;
+  --bg-overlay:   #201e19;
+  --bg-input:     #181610;
+
+  /* ── Amber / Copper Accent ── */
+  --amber:        #b8955a;
+  --amber-light:  #d4ae7a;
+  --amber-dim:    #7a6038;
+  --amber-glow:   rgba(184, 149, 90, 0.12);
+  --amber-border: rgba(184, 149, 90, 0.18);
+  --amber-border-strong: rgba(184, 149, 90, 0.38);
+
+  /* ── Typography ── */
+  --text-primary:   #f0ebe2;
+  --text-secondary: #9a9285;
+  --text-muted:     #5a5548;
+  --text-inverse:   #0e0d0a;
+
+  /* ── Borders & Surfaces ── */
+  --border:         rgba(240, 235, 226, 0.07);
+  --border-mid:     rgba(240, 235, 226, 0.11);
+  --border-strong:  rgba(240, 235, 226, 0.18);
+
+  /* ── Typography scale ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Fira Code', monospace;
+
+  /* ── Spacing & Radius ── */
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  16px;
+  --r-xl:  24px;
+
+  --transition: all 0.2s ease;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-void);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--amber-border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--amber-dim); }
